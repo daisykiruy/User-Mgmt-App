@@ -1,0 +1,49 @@
+<div class="users-page">
+  <h2>User Management</h2>
+
+  <!-- Add User Form -->
+  <form (ngSubmit)="addUser()" #userForm="ngForm">
+    <input type="text" name="name" [(ngModel)]="newUser.name" placeholder="Enter name" required>
+    <input type="email" name="email" [(ngModel)]="newUser.email" placeholder="Enter email" required>
+    <button type="submit">Add User</button>
+  </form>
+
+  <table class="user-table" aria-label="User list">
+    <thead>
+      <tr>
+        <th style="text-align:left">ID</th>
+        <th style="text-align:left">Name</th>
+        <th style="text-align:left">Email</th>
+        <th style="text-align:left">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of users">
+        <td>{{ u.id }}</td>
+
+        <!-- If editing this user -->
+        <td *ngIf="editingUser?.id === u.id">
+          <input type="text" [(ngModel)]="editingUser.name" name="editName{{u.id}}">
+        </td>
+        <td *ngIf="editingUser?.id === u.id">
+          <input type="email" [(ngModel)]="editingUser.email" name="editEmail{{u.id}}">
+        </td>
+
+        <!-- Normal display -->
+        <td *ngIf="editingUser?.id !== u.id">{{ u.name }}</td>
+        <td *ngIf="editingUser?.id !== u.id">{{ u.email }}</td>
+
+        <!-- Actions -->
+        <td>
+          <!-- Show Save/Cancel if editing -->
+          <button *ngIf="editingUser?.id === u.id" (click)="updateUser()">Save</button>
+          <button *ngIf="editingUser?.id === u.id" (click)="cancelEdit()">Cancel</button>
+
+          <!-- Show Edit/Delete otherwise -->
+          <button *ngIf="editingUser?.id !== u.id" (click)="editUser(u)">Edit</button>
+          <button *ngIf="editingUser?.id !== u.id" (click)="deleteUser(u.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

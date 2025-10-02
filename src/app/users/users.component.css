@@ -1,0 +1,81 @@
+.users-page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #bde0fe; /* light blue background */
+  color: #023047; /* deep blue text */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+h2 {
+  color: #023047;
+  margin-bottom: 16px;
+}
+
+/* Add User Form */
+form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+form input {
+  padding: 8px;
+  border: 1px solid #023047;
+  border-radius: 8px;
+  outline: none;
+  flex: 1;
+}
+
+form button {
+  background-color: #ffafcc; /* soft pink */
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #023047;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #ff85b3; /* darker pink on hover */
+}
+
+/* User Table */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.user-table th {
+  background-color: #023047;
+  color: #ffffff;
+  padding: 12px;
+  text-align: left;
+}
+
+.user-table td {
+  padding: 10px;
+  border-bottom: 1px solid #bde0fe;
+}
+
+/* Actions buttons */
+.user-table button {
+  background-color: #ffafcc;
+  border: none;
+  padding: 6px 12px;
+  margin-right: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #023047;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.user-table button:hover {
+  background-color: #ff85b3;
+}
